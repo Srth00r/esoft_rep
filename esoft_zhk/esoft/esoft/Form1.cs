@@ -39,5 +39,19 @@ from[dbo].[houses_in_complexes] as h1";
         {
            LoadData();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
     }
 }
