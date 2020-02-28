@@ -76,12 +76,13 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.button1.Location = new System.Drawing.Point(12, 228);
+            this.button1.Location = new System.Drawing.Point(12, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 45);
             this.button1.TabIndex = 1;
             this.button1.Text = "Создать новый ЖК";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -92,26 +93,31 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Редактировать";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.button3.Location = new System.Drawing.Point(231, 308);
+            this.button3.Location = new System.Drawing.Point(245, 220);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 23);
+            this.button3.Size = new System.Drawing.Size(106, 45);
             this.button3.TabIndex = 3;
             this.button3.Text = "Удаление";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.button4.Location = new System.Drawing.Point(390, 223);
+            this.button4.Location = new System.Drawing.Point(245, 292);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 54);
+            this.button4.Size = new System.Drawing.Size(106, 39);
             this.button4.TabIndex = 4;
-            this.button4.Text = "Фильтрация";
+            this.button4.Text = "Сохранить";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 

@@ -14,7 +14,7 @@ namespace esoft
 {
     public partial class Form1 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source = 303-3\\SQLEXPRESS; Initial Catalog = esoft_zhk; Integrated Security = true;");
+        SqlConnection con = new SqlConnection("Data Source = DESKTOP-K6659U1\\SQL_LAPTOP; Initial Catalog = esoft_zhk; Integrated Security = true;");
         
         public Form1()
         {
@@ -38,6 +38,39 @@ from[dbo].[houses_in_complexes] as h1";
         private void Form1_Load(object sender, EventArgs e)
         {
            LoadData();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
+            button3.Visible = true;
+            button4.Visible = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand delete = new SqlCommand($"DELETE FROM dbo.home WHERE [id] = '{dataGridView1.CurrentRow.Index + 1}'", con);
+            delete.ExecuteNonQuery();
+            con.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 fm = new Form2();
+            fm.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            button3.Visible = false;
+            button4.Visible = false;
+            dataGridView1.EndEdit();
+            con.Open();
+            SqlCommand command = new SqlCommand($"UPDATE dbo.houses_in_complexes SET [Название_ЖК] = '{dataGridView1.CurrentRow.Cells[0].Value.ToString()}', [Статус_строительства_ЖК] = '{dataGridView1.CurrentRow.Cells[1].Value.ToString()}', [Город] = '{dataGridView1.CurrentRow.Cells[3].Value.ToString()}' WHERE [id] = '{dataGridView1.CurrentRow.Index + 1}'", con);
+            command.ExecuteNonQuery();
+            con.Close();
         }
     }
 }
