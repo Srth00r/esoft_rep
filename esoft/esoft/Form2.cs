@@ -14,7 +14,7 @@ namespace esoft
 {
     public partial class Form2 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source = DESKTOP-K6659U1\\SQL_LAPTOP; Initial Catalog = esoft_zhk; Integrated Security = true;");
+        SqlConnection con = new SqlConnection("Data Source = 303-3\\SQLEXPRESS; Initial Catalog = esoft_zhk; Integrated Security = true;");
         DataTable DataTable = new DataTable();
         public Form2()
         {

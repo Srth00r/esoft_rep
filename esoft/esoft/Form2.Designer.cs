@@ -104,6 +104,8 @@ namespace esoft
             // 
             // textBox2
             // 
+            this.textBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox2.Location = new System.Drawing.Point(14, 107);
             this.textBox2.Name = "textBox2";

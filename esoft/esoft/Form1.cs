@@ -14,7 +14,7 @@ namespace esoft
 {
     public partial class Form1 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source = DESKTOP-K6659U1\\SQL_LAPTOP; Initial Catalog = esoft_zhk; Integrated Security = true;");
+        SqlConnection con = new SqlConnection("Data Source = 303-3\\SQLEXPRESS; Initial Catalog = esoft_zhk; Integrated Security = true;");
         
         public Form1()
         {
@@ -30,7 +30,6 @@ from[dbo].[houses_in_complexes] as h1";
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
                 dataGridView1.Rows.Add(reader[0].ToString(), reader[1].ToString(), reader[2].ToString(), reader[3].ToString());
-                
             reader.Close();
             con.Close();
         }
@@ -50,7 +49,7 @@ from[dbo].[houses_in_complexes] as h1";
         private void button3_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand delete = new SqlCommand($"DELETE FROM dbo.home WHERE [id] = '{dataGridView1.CurrentRow.Index + 1}'", con);
+            SqlCommand delete = new SqlCommand($"DELETE FROM dbo.houses_in_complexes WHERE [ИД_ЖК] = '{dataGridView1.CurrentRow.Index + 1}'", con);
             delete.ExecuteNonQuery();
             con.Close();
         }
@@ -68,7 +67,7 @@ from[dbo].[houses_in_complexes] as h1";
             button4.Visible = false;
             dataGridView1.EndEdit();
             con.Open();
-            SqlCommand command = new SqlCommand($"UPDATE dbo.houses_in_complexes SET [Название_ЖК] = '{dataGridView1.CurrentRow.Cells[0].Value.ToString()}', [Статус_строительства_ЖК] = '{dataGridView1.CurrentRow.Cells[1].Value.ToString()}', [Город] = '{dataGridView1.CurrentRow.Cells[3].Value.ToString()}' WHERE [id] = '{dataGridView1.CurrentRow.Index + 1}'", con);
+            SqlCommand command = new SqlCommand($"UPDATE dbo.houses_in_complexes SET [Название_ЖК] = '{dataGridView1.CurrentRow.Cells[0].Value.ToString()}', [Статус_строительства_ЖК] = '{dataGridView1.CurrentRow.Cells[1].Value.ToString()}', [Город] = '{dataGridView1.CurrentRow.Cells[3].Value.ToString()}' WHERE [ИД_ЖК] = '{dataGridView1.CurrentRow.Index + 1}'", con);
             command.ExecuteNonQuery();
             con.Close();
         }
